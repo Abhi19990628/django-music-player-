@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Songs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        audio {
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+        }
+
+        span.song-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .pagination {
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            color: #007bff;
+            margin-right: 10px;
+        }
+
+        .pagination .current {
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+
+    <ul>
+        {% for song in songs_page %}
+            <li>
+                <center><img src ={{song.picture.url}} alt="myimage"></center>
+                <audio controls>
+                    <source src="media/{{ song.song }}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+                <span class="song-name">{{ song.song_name }}</span>
+            </li>
+            <center>{{song.name}}</center>
+        {% endfor %}
+    </ul>
+    <div class="pagination">
+        <span class="step-links">
+            <center>
+            {% if songs_page.has_previous %}
+                <a href="?album={{ album_name }}&page={{ songs_page.previous_page_number }}">previous</a>
+            {% endif %}
+
+
+            {% if songs_page.has_next %}
+                <a href="?album={{ album_name }}&page={{ songs_page.next_page_number }}">next &raquo;</a>
+            {% endif %}
+            </center>
+        </span>
+    </div>
+</body>
+</html>
