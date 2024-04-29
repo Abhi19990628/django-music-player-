@@ -5,7 +5,7 @@ class Album(models.Model):
     album_image=models.FileField(upload_to="images")
     
     def __str__(self) :
-        return self.album_name
+        return self.album_name,
     
 class Songs(models.Model):
     name=models.CharField(max_length=20)
