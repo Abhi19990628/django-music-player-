@@ -1,7 +1,7 @@
 from django.db import models
 
 class Album(models.Model):
-    album_name=models.CharField(max_length=20),
+    album_name=models.CharField(max_length=20)
     album_image=models.FileField(upload_to="images")
     
     def __str__(self) :
