@@ -1,4 +1,4 @@
-from django.db import models,
+from django.db import models
 
 class Album(models.Model):
     album_name=models.CharField(max_length=20)
