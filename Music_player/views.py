@@ -7,7 +7,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 def home(request):
     album=Album.objects.all()
-    return render(request,'home.html',{"albums":album})
+    return render(request,'home.html',{"albums":album}),
 
 
 def songs(request):
